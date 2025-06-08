@@ -1,3 +1,4 @@
+//基礎編
 //Q1 変数 nickname, age に自分の名前と年齢を代入し、文字列連結で以下のようにコンソールに出力してください。
 
 let nickname = 'ごっしー';
@@ -181,11 +182,88 @@ console.log('5 を 3 で割った余りは' + result + 'です。');
 // ・スコープ
 // ・参照
 
-function foo() {
-  let x = 1;
-}
-console.log(x);
+// function foo() {
+//   let x = 1;
+// }
+// console.log(x);
 
 // // let x = 1; がfoo関数の中で宣言されているため、ブロックスコープ内でのみ有効な変数になります。
 // console.log(x); はグローバル変数のため、foo関数のブロックスコープ内にある let x = 1; を参照することができません。
 // JavaScriptには「外側のスコープから、内側のスコープにある変数を参照することはできない」という絶対的なルールがあるため、エラー発生してしまいます。
+
+
+
+//応用編
+//Q1
+// 標準組み込みオブジェクト Math を使用し、0 ~ 9 のランダムな整数をコンソールに出力してください。
+
+const RandomNum = Math.floor(Math.random() * 10);
+
+console.log('RandomNum => ',RandomNum);
+
+
+//Q2
+// 関数 setTimeout を使用し、3 秒後に以下のようにコンソールに出力してください。
+// Hello World!
+
+setTimeout(function() {
+  console.log('Hello World!');
+}, 3000);
+
+// アロー関数 の場合
+// setTimeout(() => {
+//   console.log('Hello World!');
+// }, 3000);
+
+
+//Q3
+// 変数 num に 任意の数値を代入し、下記条件のもと文字列をコンソールに出し分ける処理を作成してください。
+// ・num が 0 より大きければnum is greater than 0
+// ・num が 0 より小さければnum is less than 0
+// ・num が 0 であればnum is 0
+
+let num = -10;
+if (num > 0) {
+  console.log(num + ' is greater than 0');
+} else if (num < 0) {
+  console.log(num + ' is less than 0')
+} else {
+  console.log(num + ' is 0')
+}
+
+
+//Q4
+// 変数 numbers に空の配列を代入した後、0 ~ 99 までの数字を変数 numbers に全て追加し、値が追加された状態の変数 numbers をコンソールに出力してください
+
+let numbers = []
+
+for (let i = 0; i < 100; i++) {
+  numbers.push(i);
+// // push() は配列のメソッド（配列が持っている機能）です。
+// 配列の末尾に、引数として渡した値を追加します。
+// このコードでは、ループが回るたびに現在の i の値（0, 1, 2, ... 99）を numbers 配列に追加していきます。
+}
+
+console.log(numbers);
+
+
+//Q5
+// 以下の変数 mixed から 要素を一つずつ取り出し、下記条件のもと文字列をコンソールに出し分ける処理を作成してください。
+
+let mixed = [4, '2', 5, '8', '9', 0, 1];
+
+// ・Number であり偶数の時は even
+// ・Number であり奇数の時は odd
+// ・Number 以外の時は not number
+
+mixed.forEach(function(value) {
+  if (typeof value === 'number') {
+    if (value % 2 === 0) {
+      console.log('even');
+    } else {
+      console.log('odd');
+    }
+  } else {
+    console.log('not number');
+  }
+});
