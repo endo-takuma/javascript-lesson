@@ -267,3 +267,32 @@ mixed.forEach(function(value) {
     console.log('not number');
   }
 });
+
+// [challenge]
+// 応用Q5
+// データ型を分類してその後奇数と偶数に分けることでしっかり問題通り出力できていますね、素晴らしい！
+// そこでチャレンジ問題なのですが、if, elseif, elseを一つずつだけ使って同様に出力できるよう書いてみましょう！
+
+for(let value of mixed) {
+  if(typeof value === 'number' && value % 2 === 0) {
+    console.log('even');
+  } else if (typeof value === 'number' && value % 2 !== 0) {
+    console.log('odd');
+  } else {
+    console.log('not number');
+  }
+};
+
+
+// mixed.forEach(function(value) {
+//   if(typeof value === 'number' && value % 2 === 0) {
+//     console.log('even');
+//   } else if (typeof value === 'number' && value % 2 !== 0) {
+//     console.log('odd');
+//   } else {
+//     console.log('not number');
+//   }
+// });
+
+// forEach: 配列専用のメソッド（機能）。手軽だが、途中でループを抜けられない。
+// for...of: より汎用的なループ構文。breakで中断でき、非同期処理にも強い。
